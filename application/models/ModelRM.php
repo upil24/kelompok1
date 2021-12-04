@@ -170,10 +170,10 @@ class ModelRM extends CI_Model
     function cetak_resep()
     {
         $id = $this->uri->segment(3);
-        $query = $this->db->query("SELECT pasien.*,
+        $query = $this->db->query("SELECT pasien.kd_pasien,pasien.nama,
                                 rekam_medis.*,
-                                obat.*,
-                                dokter.*,
+                                obat.nama_obat,obat.kd_obat,obat.satuan,
+                                dokter.kd_dokter,dokter.nama_dokter,
                                 resep_obat.*
                             FROM pasien
                             INNER JOIN rekam_medis ON rekam_medis.kd_pasien=pasien.kd_pasien
@@ -181,6 +181,30 @@ class ModelRM extends CI_Model
                             INNER JOIN resep_obat ON resep_obat.kd_rm = rekam_medis.kd_rm
                             INNER JOIN obat ON obat.kd_obat = resep_obat.kd_obat
                             WHERE rekam_medis.kd_rm='$id'");
+
+        return $query;
+    }
+
+    public function belumperiksa()
+    {
+        return $this->db->where('status_periksa', 'Belum Periksa')->from("rekam_medis")->count_all_results();
+    }
+
+    public function sudahperiksa()
+    {
+        return $this->db->where('status_periksa', 'Done')->from("rekam_medis")->count_all_results();
+    }
+
+    function cetak_riwayat()
+    {
+        $id = $this->uri->segment(3);
+        $query = $this->db->query("SELECT pasien.kd_pasien,
+                                rekam_medis.*,                                
+                                dokter.kd_dokter,dokter.nama_dokter                                
+                            FROM pasien
+                            INNER JOIN rekam_medis ON rekam_medis.kd_pasien=pasien.kd_pasien
+                            INNER JOIN dokter ON rekam_medis.kd_dokter=dokter.kd_dokter
+                            WHERE pasien.kd_pasien='$id'");
 
         return $query;
     }

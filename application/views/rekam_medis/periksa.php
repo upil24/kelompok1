@@ -52,7 +52,7 @@
                 <div class="card border-info mt-4">
                     <div class="card-header bg-info text-white">
                         Riwayat Berobat
-                        <a href="<?= base_url('rekammedis/cetak_riwayat/'); ?>" class="btn btn-warning btn-sm float-right" target="_blank">Cetak</a>
+                        <a href="<?= base_url('rekammedis/cetak_riwayat/' . $biodata['kd_pasien']); ?>" class="btn btn-warning btn-sm float-right" target="_blank">Cetak</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-sm table-bordered table-striped">
@@ -90,7 +90,7 @@
                 <div class="card border-danger">
                     <div class="card-header bg-danger text-white">
                         Catatan (Rekam Medis)
-                        <a href="<?= base_url('rekammedis/cetak_hasil/' . $r['kd_rm']); ?>" class="btn btn-warning btn-sm float-right" target="_blank">Cetak Hasil</a>
+                        <a href="<?= base_url('rekammedis/cetak_hasil/' . $kode_rekam); ?>" class="btn btn-warning btn-sm float-right" target="_blank">Cetak Hasil</a>
                     </div>
                     <div class="card-body">
                         <form method="post" action="<?= base_url(); ?>rekammedis/insert_rm">
@@ -128,7 +128,7 @@
                 <div class="card border-success mt-4">
                     <div class="card-header bg-success text-white">
                         Resep Obat
-                        <!-- <a href="<?= base_url('rekammedis/cetak_resep/' . $d['kd_rm']); ?>" class="btn btn-primary btn-sm float-right" target="_blank">Cetak Resep</a> -->
+                        <a href="<?= base_url('rekammedis/cetak_resep/' . $d['kd_rm']); ?>" class="btn btn-primary btn-sm float-right" target="_blank">Cetak Resep</a>
                     </div>
                     <div class="card-body">
                         <form method="post" action="<?= base_url('rekammedis/insert_resep'); ?>">

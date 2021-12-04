@@ -40,7 +40,7 @@ foreach ($data as $row) {
     $pdf->Cell(40, 6, $row['nama'], 1, 0, 'C');
     $pdf->Cell(60, 6, $row['email'], 1, 0, 'C');
     $pdf->Cell(45, 6, $row['role'], 1, 0, 'C');
-    $pdf->Cell(35, 6, date("d M Y", strtotime($row['date_created'])), 1, 1, 'C');
+    $pdf->Cell(35, 6, date("d M Y", $row['date_created']), 1, 1, 'C');
     $no++;
 }
 

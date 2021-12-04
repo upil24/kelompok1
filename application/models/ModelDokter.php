@@ -34,4 +34,9 @@ class ModelDokter extends CI_Model
     {
         $this->db->update('dokter', $data, $where);
     }
+
+    public function jumlahDokter()
+    {
+        return $this->db->count_all_results('dokter');
+    }
 }

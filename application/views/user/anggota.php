@@ -75,6 +75,7 @@
                                 <option value="2">Dokter</option>
                                 <option value="3">Kasir</option>
                                 <option value="4">Pendaftaran</option>
+                                <option value="5">Super Admin</option>
                             </select>
                         </div>
                         <div class="form-group">

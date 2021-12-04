@@ -24,10 +24,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-md font-weight-bold text-white text-uppercase mb-1"> Pasien Hari ini</div>
-                            <div class="h1 mb-0 font-weight-bold text-white">
-                                tess
-                            </div>
+                            <div class="text-md font-weight-bold text-white text-uppercase mb-1">Jumlah Dokter</div>
+                            <div class="h1 mb-0 font-weight-bold text-white"><?= $this->ModelDokter->jumlahDokter(); ?></div>
                         </div>
                         <div class="col-auto">
                             <a href=""><i class="fas fa-user-md fa-3x text-primary"></i></a>
@@ -42,10 +40,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-md font-weight-bold text-white text-uppercase mb-1">Belum Diperiksa</div>
-                            <div class="h1 mb-0 font-weight-bold text-white">
-                                tess
-                            </div>
+                            <div class="text-md font-weight-bold text-white text-uppercase mb-1">Pasien Belum Diperiksa</div>
+                            <div class="h1 mb-0 font-weight-bold text-white"><?= $this->ModelRM->belumperiksa(); ?></div>
                         </div>
                         <div class="col-auto">
                             <a href=""><i class="fas fa-x-ray fa-3x text-success"></i></a>
@@ -60,10 +56,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-md font-weight-bold text-white text-uppercase mb-1">Sudah Diperiksa</div>
-                            <div class="h1 mb-0 font-weight-bold text-white">
-                                tess
-                            </div>
+                            <div class="text-md font-weight-bold text-white text-uppercase mb-1">Pasien Sudah Diperiksa</div>
+                            <div class="h1 mb-0 font-weight-bold text-white"><?= $this->ModelRM->sudahperiksa(); ?></div>
                         </div>
                         <div class="col-auto">
                             <a href=""><i class="fas fa-vial fa-3x text-danger"></i></a>

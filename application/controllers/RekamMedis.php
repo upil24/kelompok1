@@ -6,7 +6,7 @@ class RekamMedis extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //is_logged_in();
+        is_logged_in();
         $this->load->library('cetak_pdf');
     }
 
@@ -81,7 +81,8 @@ class RekamMedis extends CI_Controller
             $data = [
                 'kd_rm' => ($this->input->post('kd_rm', true)),
                 'kd_pasien' => ($this->input->post('kd_pasien', true)),
-                'kd_dokter' => ($this->input->post('kd_dokter', true))
+                'kd_dokter' => ($this->input->post('kd_dokter', true)),
+                'last_update' => time()
             ];
 
 
@@ -107,6 +108,7 @@ class RekamMedis extends CI_Controller
         $data['resep'] = $this->ModelRM->tampil_resep($id)->result_array();
         $data['tindakan'] = $this->ModelTindakan->tampilTindakan()->result_array();
         $data['detail_tindakan'] = $this->ModelRM->tampil_tindakan($id)->result_array();
+        $data['kode_rekam'] = $this->uri->segment(3);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -123,6 +125,7 @@ class RekamMedis extends CI_Controller
         $tensi = $this->input->post('tensi');
         $alergi = $this->input->post('alergi');
         $tb_bb = $this->input->post('tb_bb');
+        $last_update = time();
 
         $data = array(
             'keluhan' => $keluhan,
@@ -130,7 +133,8 @@ class RekamMedis extends CI_Controller
             'tensi' => $tensi,
             'alergi' => $alergi,
             'tb_bb' => $tb_bb,
-            'status_periksa' => 'Done'
+            'status_periksa' => 'Done',
+            'last_update' => $last_update
         );
 
         $where = array('kd_rm' => $kd_rm);
@@ -193,8 +197,16 @@ class RekamMedis extends CI_Controller
 
     public function cetak_resep()
     {
-        $data['pasien'] = $this->ModelRM->cetak_resep()->row_array();
+        $data['pasien'] = $this->ModelRM->cetak_resep()->result_array();
 
         $this->load->view('cetak/cetak_resep', $data);
+    }
+
+    public function cetak_riwayat()
+    {
+        $data['pasien'] = $this->ModelPasien->pasienWhere(['kd_pasien' => $this->uri->segment(3)])->row_array();
+        $data['riwayat'] = $this->ModelRM->cetak_riwayat()->result_array();
+
+        $this->load->view('cetak/cetak_riwayat', $data);
     }
 }

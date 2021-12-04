@@ -26,14 +26,16 @@
                         <div class="card-body">
                             <form action="<?= base_url('Laporan/laporan_kunjungan'); ?>" method="post">
                                 <div class="row">
-                                    <div class="col-md-4 ">
+                                    <!-- <div class="col-md-4 ml-3">
                                         <input type="text" class="form-control datepicker" placeholder="Pilih Tgl" name="awal">
                                     </div>-
                                     <div class="col-md-4 ">
                                         <input type="text" class="form-control datepicker" placeholder="Pilih Tgl" name="akhir">
-                                    </div>
-                                    <div class="col-md-3 ">
-                                        <input type="submit" class="btn btn-outline-primary form-control" value="Cetak" formtarget="_blank">
+                                    </div> -->
+                                    <div class="col-md-5 ml-5">
+                                        <div class="ml-5">
+                                            <input type="submit" class="btn btn-outline-primary form-control ml-5" value="Cetak" formtarget="_blank">
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -60,14 +62,14 @@
 
             <!-- Content Row2 -->
             <div class="row">
-                <div class="col-md-4 mt-5 mb-5">
+                <div class="col-md-3 mt-5 mb-5">
                     <div class="card">
                         <div class="alert bg-success" role="alert">
                             <h4 class="text-center text-light">Laporan User</h4>
                         </div>
                         <div class="card-body">
                             <form action="<?= base_url('Laporan/laporan_user'); ?>" method="post">
-                                <div class="col-md-6 ml-4">
+                                <div class="col-md-6 ">
                                     <input type="submit" class="btn btn-outline-success form-control ml-5" value="Cetak" formtarget="_blank">
                                 </div>
                             </form>

@@ -6,7 +6,7 @@ class Antrian extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        //is_logged_in();
+        is_logged_in();
         $this->load->library('cetak_pdf');
     }
     public function index()
